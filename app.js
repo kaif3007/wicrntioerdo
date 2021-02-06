@@ -3,10 +3,8 @@ let skip=0;
 
 let data=[];
 
-
-
 //for get, put, post request
- class EasyHTTP
+class EasyHTTP
  {
          async get(url)
          {
@@ -39,7 +37,6 @@ let data=[];
 
               return  await response.json();   
         }
-
 }
 
  function clearAlert()
@@ -103,9 +100,10 @@ document.getElementById('details').addEventListener('keyup',e=>{
 });
 
 document.querySelector('#item-list').addEventListener('click',e=>{
-   
-    if(e.target.className.includes('btn-floating'))
+     
+    if(e.target.className.includes('fa'))
     {
+
          let arr=e.target.className.split(' ')
          const id=parseInt(arr[arr.length-1])
 
@@ -128,6 +126,7 @@ document.querySelector('#item-list').addEventListener('click',e=>{
          })
 
          document.querySelector('.edit-submit').addEventListener('click',(e)=>{
+             
              e.preventDefault()
              caption=document.getElementById("edit-caption").value;
              url=document.getElementById("edit-url").value;
@@ -176,7 +175,8 @@ function patchMeme(id,caption,url)
 
 document.querySelector('.get').addEventListener('click',e=>{
     e.preventDefault()
-    getMeme(1)});
+    getMeme(1)}
+    );
 
 
 function getMeme(param)
@@ -201,7 +201,7 @@ function getMeme(param)
                             <div class="card">
                                 <div class="card-image">
                                 <img src=${r.url}>
-                                <a class="btn-floating halfway-fab waves-effect waves-light red ${r.id}">Edit</a>
+                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="fa fa-pencil ${r.id}"></i></a>
                                 </div>
                                 <div class="card-title center">
                                 <h4>${r.name}</h4>
@@ -216,7 +216,6 @@ function getMeme(param)
                             </li>`)
 
                             data.push([r.id,r.caption,r.url])
-
 
                         })
 
@@ -244,7 +243,7 @@ function getMeme(param)
                         
                     })
                     .catch(err=>{
-                        console.log(`https://xmeme-backend.herokuapp.com/memes?skip=${skip}&take=2`)
+                        
                         showAlert('There was an error in loading memes','card red alert')
 
                     });
@@ -254,9 +253,7 @@ function getMeme(param)
 
 function postFormData(data)
 {
-    const http=new EasyHTTP;
-
-
+        const http=new EasyHTTP;
 
         const div=document.createElement('div');
         div.className='progress blue';
@@ -271,7 +268,7 @@ function postFormData(data)
         container.insertBefore(div,search);
 
 
-    http.post(`https://xmeme-backend.herokuapp.com/memes?name=${data.name}&caption=${data.caption}&url=${data.url}`)
+        http.post(`https://xmeme-backend.herokuapp.com/memes?name=${data.name}&caption=${data.caption}&url=${data.url}`)
                  .then( res=>{
                 
                  document.querySelector('.progress').remove()
