@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <title>XMeme</title>
+</head>
+
+<body>
+
+  
+    <nav>
+        <div class="nav-wrapper blue">
+          <div class="container">
+            <a href="#" class="brand-logo center">XMeme</a>
+          </div>
+        </div>
+    </nav>
+
+    <div id="overlay" style="position: fixed; display: none;width: 100%;height: 100%;background-color: rgba(0,0,0,0.7);z-index: 2;">
+
+        <div class="card body-card" style="border: 3px solid blue; margin-left: 20%; margin-right: 20%; margin-top: 20%;">
+            <div class="card-content">
+                <span class="card-title">Edit Post</span>
+                <form id='edit-details'>
+                    <div>
+                        <label for="caption">Caption</label>
+                        <input type="text" id="edit-caption" placeholder="Enter new Caption">
+                    </div>
+                    <div>
+                        <label for="url">Meme URL</label>
+                        <input type="text" id="edit-url" placeholder="Enter new URL">
+                    </div>
+                
+                </form>
+                <div>
+                    <button class="edit-submit btn orange darken-3">Submit Meme</button>
+                    <button class="edit-back btn yellow darken-3">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+   <div class="container body-container">
+       <br>
+        <div class="card body-card main-body">
+            <div class="card-content">
+                <span class="card-title">Meme Stream</span>
+                <form id='details'>
+                    <div>
+                        <label for="owner">Meme Owner</label>
+                        <input type="text" id="owner" placeholder="Enter Your Full Name">
+                    </div>
+                    <div>
+                        <label for="caption">Caption</label>
+                        <input type="text" id="caption" placeholder="Be Creative With Caption">
+                    </div>
+                    <div>
+                        <label for="url">Meme URL</label>
+                        <input type="text" id="url" placeholder="Enter URL of your Meme here">
+                    </div>
+                  
+                </form>
+                <div>
+                    <button class="submit btn blue darken-3" disabled>Submit Meme</button>
+                </div>
+        
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+         <div class="card">
+             <div class="card-content">
+                <button class="get btn red">Get Meme</button>
+                <ul id="item-list" class="collection"></ul>
+             </div>
+         </div>
+    </div>
+    
+
+  <script src="app.js"></script>
+</body>
+</html>
